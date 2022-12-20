@@ -1,0 +1,31 @@
+
+
+****************** FERRAMENTAS ****************************
+
+Antdesign @ant-design/icons INSTALED 
+
+
+react-redux @reduxjs/toolkit (gerenciamento global) INSTALED 
+
+axios - (solicitações de api) INSTALED 
+
+chart.js (construir os gráficos) INSTALED 
+
+html-react-parser
+
+millify (transforma numeros grandes em strings legíveis ) INSTALED 
+
+moment (analisa datas e horas) INSTALED 
+ 
+ract-chartjs-2 (renderizar os gráficos) INSTALED
+
+react-router-dom (gerenciamento de rotas)
+
+tailwind css INSTALED 
+
+
+
+********************* PASSOS DO CÓDIGO **********************
+
+1 - Instalações das ferramentas
+2 - gerenciamento das rotas e layout 

@@ -2,14 +2,14 @@ import React from "react";
 import Millify from "millify";
 import { Typography, Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
-import { useGetCryptosQuery } from "../../services/CryptoApi";
+import { useGetCryptosQuery } from "../../redux/CryptoApi";
 import CryptocurrenciesPage from "../cryptocurrencies/CryptocurrenciesPage";
 import NewsPage from "../news/NewsPage";
 
 const HomePage = () => {
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
-  // console.log(data)
+  console.log(data)
 
   if (isFetching) return "Loading...";
 
@@ -47,20 +47,20 @@ const HomePage = () => {
           />
         </Col>
       </Row>
-      <div className="home-heading-container">
-        <Typography level={2} className="home-title">
+      <div className="flex justify-between items-center mt-10 mb-10">
+        <Typography level={2} className="text-xl">
           Top 10 Cryptocurrencies in the world
         </Typography>
-        <Typography level={3} className="show-more">
+        <Typography level={3} className="text-lg">
           <Link to="/cryptocurrencies">Show More</Link>
         </Typography>
       </div>
       <CryptocurrenciesPage simplified />
-      <div className="home-heading-container">
-        <Typography level={2} className="home-title">
+      <div className="flex justify-between items-center ">
+        <Typography level={2} className="text-xl">
           Latest Crypto News
         </Typography>
-        <Typography level={3} className="show-more">
+        <Typography level={3} className="text-lg">
           <Link to="/cryptocurrencies">Show More</Link>
         </Typography>
       </div>

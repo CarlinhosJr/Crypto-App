@@ -61,10 +61,11 @@ const HomePage = () => {
           Latest Crypto News
         </Typography>
         <Typography level={3} className="text-lg">
-          <Link to="/cryptocurrencies">Show More</Link>
+          <Link to="/news">Show More</Link>
         </Typography>
       </div>
       <NewsPage simplified />
+    
     </>
   );
 };

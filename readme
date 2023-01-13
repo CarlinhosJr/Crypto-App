@@ -31,8 +31,9 @@ tailwind css INSTALED
 2 - gerenciamento das rotas - ok
 3 - layout - ok
 4 - conexão com API - OK (precisa de ajustes)
-5 - contedo Home page - 
-6 - contedo cryptocurrencies - 
+5 - contedo Home page - OK 
+6 - contedo cryptocurrencies - OK 
+7 - conteudo news page - OK (> 100 ? `${news.description.substring(1,5)}...` : news.description)
 
 
 ************************ OUTROS ******************************

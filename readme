@@ -33,9 +33,11 @@ tailwind css INSTALED
 4 - conexão com API - OK (precisa de ajustes)
 5 - contedo Home page - OK 
 6 - contedo cryptocurrencies - OK 
-7 - conteudo news page - OK (> 100 ? `${news.description.substring(1,5)}...` : news.description)
+7 - conteudo news page - OK (> 100 ? `${news.description.substring(1,5)}...` : news.description) optionFilterProp="children" filterOption={(option) => option.render}
 
 
 ************************ OUTROS ******************************
 
 1 - NOMES PASTAS E ARQUIVOS
+2- Estudar Redux
+3- fazer estado de loading

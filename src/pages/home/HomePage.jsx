@@ -47,7 +47,7 @@ const HomePage = () => {
           />
         </Col>
       </Row>
-      <div className="flex justify-between items-center mt-10 mb-10">
+      <div className="flex justify-between items-center mt-10 ">
         <Typography level={2} className="text-xl">
           Top 10 Cryptocurrencies in the world
         </Typography>
@@ -56,7 +56,7 @@ const HomePage = () => {
         </Typography>
       </div>
       <CryptocurrenciesPage simplified />
-      <div className="flex justify-between items-center ">
+      <div className="flex justify-between items-center mt-12 ">
         <Typography level={2} className="text-xl">
           Latest Crypto News
         </Typography>

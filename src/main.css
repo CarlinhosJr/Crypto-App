@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.coin-details-heading h3,
+.coin-details-heading span {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.coin-details-heading p{
+    color: #0071bd;
+    margin-top: 10px;
+}
+
+.coin-links{
+  padding: 0px 20px;
+    flex: 0.5;
+}

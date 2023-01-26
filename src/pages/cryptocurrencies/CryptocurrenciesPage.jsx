@@ -15,13 +15,14 @@ const CryptocurrenciesPage = ({ simplified }) => {
   useEffect(() => {
     const filterdData = cryptosList?.data?.coins.filter((coin) =>
       coin.name.toLowerCase().includes(SearchTerm.toLocaleLowerCase())
+      
     );
 
     setCryptos(filterdData);
   }, [cryptosList, SearchTerm]);
 
   if (IsFetching) return "Loading...";
-  // console.log(cryptos);
+  console.log(cryptos);
   return (
     <>
       {!simplified && (
@@ -44,7 +45,7 @@ const CryptocurrenciesPage = ({ simplified }) => {
             className="crypto-card min-w-[250px] w-9"
             key={currency.id}
           >
-            <Link to={`/crypto/${currency.id}`}>
+            <Link to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}. ${currency.name}`}
                 extra={

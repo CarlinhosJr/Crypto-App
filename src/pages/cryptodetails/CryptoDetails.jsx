@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import millify from "millify";
 import { Col, Row, Select } from "antd";
-import { useGetCryptoDetailsQuery } from "../../redux/CryptoApi";
+import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../../redux/CryptoApi";
 import HtmlParser from "react-html-parser";
 import {
   MoneyCollectOutlined,
@@ -15,13 +15,16 @@ import {
   NumberOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import LineChart from "../../components/LineChart";
 
 const CryptoDetails = () => {
   const { coinId } = useParams();
   const [timePeriod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({coinId, timePeriod});
   const cryptoDetails = data?.data?.coin;
   console.log(data);
+  console.log(coinHistory)
   
   if (isFetching) return "Loading...";
 
@@ -114,7 +117,10 @@ const CryptoDetails = () => {
       </Select>
       {/* Line chart */}
 
+      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name}/>
+
       {/* statistics cryptocurrency */}
+
       <Col className="flex justify-around item mt-10">
         <Col>
           <Col>
@@ -167,6 +173,9 @@ const CryptoDetails = () => {
             {HtmlParser(cryptoDetails.description)}
           </h3>
         </Row>
+
+        {/* LINKS THE CRYPTOCURRENCIES */}
+
         <Col className="coin-links px-5">
           <span className="coin-details-heading font-bold text-3xl">{cryptoDetails.name} Links</span>
           {cryptoDetails.links?.map((link) =>(

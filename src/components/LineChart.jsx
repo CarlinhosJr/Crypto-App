@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
+import {Chart as Chartjs} from 'chart.js/auto'
 import { Col, Row } from "antd";
 
 function LineChart({ coinHistory, currentPrice, coinName }) {
   const coinPrice = [];
   const coinTimestamp = [];
+
+   // object data for Chartjs
+  const [lineChartData, setLineChartData] = useState({
+    labels: coinTimestamp,
+    datasets: [
+      {
+        label: "Price in USD",
+        data: coinPrice,
+        fill: false,
+        backgroundColor: "#0071bd",
+        borderColor: "#0071bd",
+      },
+    ],
+  })
+
+   // object options for Chartjs
+  //  const [lineChartOptions, SetLineChartOptions] = useState({
+   
+  // })
 
   // scroll through currency history
   for (let i = 0; i < coinHistory?.data?.history.length; i += 1) {
@@ -18,19 +38,6 @@ function LineChart({ coinHistory, currentPrice, coinName }) {
     );
   }
 
-  // object data for Chartjs
-  const data = {
-    labels: coinTimestamp,
-    datasets: [
-      {
-        label: "Price in USD",
-        data: coinPrice,
-        fill: false,
-        backgroundColor: "#0071bd",
-        borderColor: "#0071bd",
-      },
-    ],
-  };
 
   // object options for Chartjs
   const options = {
@@ -56,7 +63,7 @@ function LineChart({ coinHistory, currentPrice, coinName }) {
           </h2>
         </Col>
       </Row>
-      {/* <Line data={data} options={options} /> */}
+      <Line data={lineChartData} options={options} />
     </>
   );
 }

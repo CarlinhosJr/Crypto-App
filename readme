@@ -41,3 +41,36 @@ tailwind css INSTALED
 1 - NOMES PASTAS E ARQUIVOS
 2- Estudar Redux, useParams
 3- fazer estado de loading
+
+
+
+ responsive: true,
+    maintainAspectRatio: false,
+    title: {
+      display: true,
+      text: coinName,
+    },
+    legend: {
+      display: true,
+      position: "bottom",
+    },
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: "Time",
+          },
+        },
+      ],
+      yAxes: [
+        {
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: "Price in USD",
+          },
+        },
+      ],
+    },

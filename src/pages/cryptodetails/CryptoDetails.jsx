@@ -38,9 +38,9 @@ const CryptoDetails = () => {
     },
     { title: "Rank", value: cryptoDetails?.rank, icon: <NumberOutlined /> },
     {
-      title: "24h Volume",
-      value: `${cryptoDetails?.volume && millify(cryptoDetails?.volume)}`,
-      icon: <ThunderboltOutlined />,
+      title: "PriceAt",
+      value: `${cryptoDetails?.priceAt && millify(cryptoDetails?.priceAt)}`,
+      icon: <DollarCircleOutlined />,
     },
     {
       title: "Market Cap",
@@ -122,7 +122,7 @@ const CryptoDetails = () => {
 
       {/* statistics cryptocurrency */}
 
-      <Col className="flex justify-around item mt-10">
+      <Col className="flex justify-between item mt-10">
         <Col>
           <Col>
             <h2 className="text-lg text-center font-bold text-zinc-900">
@@ -167,8 +167,8 @@ const CryptoDetails = () => {
 
       {/* MORE INFORMATION ABOUT CRYPTOCURRENCIE */}
 
-      <Col className="coin-desc-link flex gap-10 mt-10 pt-5">
-        <Row className="coin-desc text">
+      <Col className=" flex justify-around gap-10 mt-10 pt-5">
+        <Row className=" max-w-[700px]">
           <h3 className="coin-details-heading font-bold">
             <span>What is {cryptoDetails.name}?</span> 
             {HtmlParser(cryptoDetails.description)}
@@ -177,12 +177,12 @@ const CryptoDetails = () => {
 
         {/* LINKS THE CRYPTOCURRENCIES */}
 
-        <Col className="coin-links px-5">
-          <span className="coin-details-heading font-bold text-3xl">{cryptoDetails.name} Links</span>
+        <Col className=" flex-[0.5] px-5">
+          <span className="coin-details-heading flex justify-center font-bold text-3xl">{cryptoDetails.name} Links</span>
           {cryptoDetails.links?.map((link) =>(
-            <Row className="coin-link flex justify-between items-center p-5 border-b border-[#d9d9d9] " key={link.name}>
-              <span className="link-name">{link.type}</span>
-              <a href={link.url} target="_blank" rel="noreferrer">{link.name}</a>
+            <Row className=" flex justify-between items-center p-5 border-b border-[#d9d9d9] hover:bg-[#F9F9F9]" key={link.name}>
+              <span className=" capitalize ">{link.type}</span>
+              <a href={link.url} target="_blank" rel="noreferrer" className="font-bold text-[#0071bd]">{link.name}</a>
             </Row>
           ))}
         </Col>

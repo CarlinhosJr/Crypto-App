@@ -18,8 +18,8 @@ const NewsPage = ({ simplified }) => {
 
   console.log(cryptoNews);
 
-  if (!cryptoNews?.value) return "Loading...";
-
+  if (!cryptoNews?.value) return "Loading..."
+ 
   return (
     <Row gutter={[24, 24]} className="mt-6">
       {!simplified && (

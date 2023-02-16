@@ -12,8 +12,8 @@ import News from "./pages/news/NewsPage";
 function App() {
   return (
     <Router>
-      <div className="flex overflow-hidden">
-        <div className="w-[400px] bg-[#001529]">
+      <div className="lg:flex overflow-hidden">
+        <div className="lg:w-[400px] bg-[#001529] ">
           <NavBar />
         </div>
         <div className="w-full">

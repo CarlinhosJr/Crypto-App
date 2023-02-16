@@ -1,43 +1,38 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
-import {Chart as Chartjs} from 'chart.js/auto'
+import { Chart as Chartjs } from "chart.js/auto";
 import { Col, Row } from "antd";
 
 function LineChart({ coinHistory, currentPrice, coinName }) {
   const coinPrice = [];
   const coinTimestamp = [];
 
-   // object data for Chartjs
-  const [lineChartData, setLineChartData] = useState({
+  // scroll through currency history
+  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+    // add each price into coinPrice array
+    coinPrice.push(coinHistory?.data?.history[i].price);
+
+    // add each date into coinTimestamp array (new Date and toLocaleDateString -  more readable )
+    coinTimestamp.push(
+      new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
+    );
+
+   
+  }
+
+  // object data for Chartjs
+  const data = {
     labels: coinTimestamp,
     datasets: [
       {
-        label: "Price in USD",
+        label: "Price In USD",
         data: coinPrice,
         fill: false,
         backgroundColor: "#0071bd",
         borderColor: "#0071bd",
       },
     ],
-  })
-
-   // object options for Chartjs
-  //  const [lineChartOptions, SetLineChartOptions] = useState({
-   
-  // })
-
-  // scroll through currency history
-  for (let i = 0; i < coinHistory?.data?.history.length; i += 1) {
-
-    // add each price into coinPrice array
-    coinPrice.push(coinHistory.data.history[i].price);
-
-    // add each date into coinTimestamp array (new Date and toLocaleDateString -  more readable )
-    coinTimestamp.push(
-      new Date(coinHistory.data.history[i].timestamp).toLocaleDateString()
-    );
-  }
-
+  };
 
   // object options for Chartjs
   const options = {
@@ -54,16 +49,20 @@ function LineChart({ coinHistory, currentPrice, coinName }) {
 
   return (
     <>
-      <Row className="chart-header">
-        <h1 className="chart-title">{coinName} Price Chart</h1>
+      <Row className="chart-header flex justify-between gap-12 mt-6">
+        <h1 className="chart-title text-[#0071bd] text-2xl font-medium">
+          {coinName} Price Chart
+        </h1>
         <Col className="price-container">
-          <h2 className="price-change">{coinHistory?.data?.change}%</h2>
-          <h2 className="current-price">
+          <span className="price-change font-black mr-5">
+            {coinHistory?.data?.change}%
+          </span>
+          <span className="current-price font-black">
             Current {coinName} Price: ${currentPrice}
-          </h2>
+          </span>
         </Col>
       </Row>
-      <Line data={lineChartData} options={options} />
+      <Line data={data} options={options} />
     </>
   );
 }

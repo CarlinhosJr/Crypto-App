@@ -19,16 +19,16 @@ import LineChart from "../../components/LineChart";
 
 const CryptoDetails = () => {
   const { coinId } = useParams();
-  const [timePeriod, setTimePeriod] = useState("7d");
+  const [timeperiod, setTimePeriod] = useState('7d');
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-  const { data: coinHistory } = useGetCryptoHistoryQuery({coinId, timePeriod});
+  const { data: coinHistory } = useGetCryptoHistoryQuery({coinId, timeperiod});
   const cryptoDetails = data?.data?.coin;
   console.log(data);
-  console.log(coinHistory)
+  console.log(coinHistory);
   
   if (isFetching) return "Loading...";
 
-  const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
+  const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
   const stats = [
     {
@@ -95,9 +95,9 @@ const CryptoDetails = () => {
   ];
 
   return (
-    <Col className="coin-detail-container m-8">
-      <Col className="coin-heading-container flex flex-col justify-center items-center gap-3">
-        <h1 className="coin-name text-3xl font-extrabold text-sky-600">
+    <Col className="lg:m-8">
+      <Col className=" flex flex-col justify-center items-center gap-3">
+        <h1 className=" text-3xl font-extrabold text-sky-600">
           {cryptoDetails.name} ({cryptoDetails.symbol}) Price
         </h1>
         <p className="text-zinc-600">
@@ -118,17 +118,17 @@ const CryptoDetails = () => {
       
       {/* Line chart */}
 
-      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name}/>
+      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name}/>
 
       {/* statistics cryptocurrency */}
 
-      <Col className="flex justify-between item mt-10">
+      <Col className="lg:flex lg:justify-around mt-10">
         <Col>
           <Col>
             <h2 className="text-lg text-center font-bold text-zinc-900">
               {cryptoDetails.name} Value Statistics
             </h2>
-            <p className="text-zinc-600 mb-4">An overview showing the stats of {cryptoDetails.name}</p>
+            <p className="text-zinc-600 mb-4 text-center">An overview showing the stats of {cryptoDetails.name}</p>
           </Col>
           {stats.map(({ icon, title, value }) => (
             <Col
@@ -146,7 +146,7 @@ const CryptoDetails = () => {
 
         {/* stats for all cryptocurrency combined */}
 
-        <Col>
+        <Col className="lg:mt-0 mt-10">
           <Col >
             <Col >
               <h2 className="text-lg text-center font-bold  text-zinc-900">Other Statistics</h2>
@@ -167,9 +167,9 @@ const CryptoDetails = () => {
 
       {/* MORE INFORMATION ABOUT CRYPTOCURRENCIE */}
 
-      <Col className=" flex justify-around gap-10 mt-10 pt-5">
+      <Col className=" lg:flex lg:justify-around lg:gap-10 mt-10 pt-5">
         <Row className=" max-w-[700px]">
-          <h3 className="coin-details-heading font-bold">
+          <h3 className="coin-details-heading font-bold lg:text-xl">
             <span>What is {cryptoDetails.name}?</span> 
             {HtmlParser(cryptoDetails.description)}
           </h3>
@@ -177,8 +177,8 @@ const CryptoDetails = () => {
 
         {/* LINKS THE CRYPTOCURRENCIES */}
 
-        <Col className=" flex-[0.5] px-5">
-          <span className="coin-details-heading flex justify-center font-bold text-3xl">{cryptoDetails.name} Links</span>
+        <Col className="flex-[0.5] lg:mb-0 mb-10">
+          <span className=" flex justify-center font-bold lg:text-3xl lg:mt-0 text-2xl mt-8">{cryptoDetails.name} Links</span>
           {cryptoDetails.links?.map((link) =>(
             <Row className=" flex justify-between items-center p-5 border-b border-[#d9d9d9] hover:bg-[#F9F9F9]" key={link.name}>
               <span className=" capitalize ">{link.type}</span>

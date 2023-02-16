@@ -18,7 +18,7 @@ const HomePage = () => {
       <Typography.Title level={2} className="heading">
         Global Crypto Stats
       </Typography.Title>
-      <Row>
+      <Row >
         <Col span={12}>
           <Statistic title="Total Cryptocurrencies" value={globalStats.total} />
         </Col>
@@ -48,19 +48,19 @@ const HomePage = () => {
         </Col>
       </Row>
       <div className="flex justify-between items-center mt-10 ">
-        <Typography level={2} className="text-xl">
+        <Typography level={2} className="lg:text-xl">
           Top 10 Cryptocurrencies in the world
         </Typography>
-        <Typography level={3} className="text-lg">
+        <Typography level={3} className="lg:text-lg">
           <Link to="/cryptocurrencies">Show More</Link>
         </Typography>
       </div>
       <CryptocurrenciesPage simplified />
       <div className="flex justify-between items-center mt-12 ">
-        <Typography level={2} className="text-xl">
+        <Typography level={2} className="lg:text-xl">
           Latest Crypto News
         </Typography>
-        <Typography level={3} className="text-lg">
+        <Typography level={3} className="lg:text-lg">
           <Link to="/news">Show More</Link>
         </Typography>
       </div>

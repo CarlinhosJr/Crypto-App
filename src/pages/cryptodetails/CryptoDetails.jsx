@@ -150,7 +150,7 @@ const CryptoDetails = () => {
           <Col >
             <Col >
               <h2 className="text-lg text-center font-bold  text-zinc-900">Other Statistics</h2>
-              <p className="text-zinc-600 mb-4">An overview showing the stats of all cryptocurrencies</p>
+              <p className="text-zinc-600 mb-4 text-center">An overview showing the stats of all cryptocurrencies</p>
             </Col>
             {genericStats.map(({ icon, title, value }) => (
               <Col key={title} className=" flex justify-between p-5 opacity-90 border-b border-[#d9d9d9] hover:bg-white hover:transition-colors">
@@ -168,8 +168,8 @@ const CryptoDetails = () => {
       {/* MORE INFORMATION ABOUT CRYPTOCURRENCIE */}
 
       <Col className=" lg:flex lg:justify-around lg:gap-10 mt-10 pt-5">
-        <Row className=" max-w-[700px]">
-          <h3 className="coin-details-heading font-bold lg:text-xl">
+        <Row className="xl:w-[600px] lg:w-[400px]">
+          <h3 className="coin-details-heading font-bold xl:text-xl lg:text-lg">
             <span>What is {cryptoDetails.name}?</span> 
             {HtmlParser(cryptoDetails.description)}
           </h3>
@@ -177,7 +177,7 @@ const CryptoDetails = () => {
 
         {/* LINKS THE CRYPTOCURRENCIES */}
 
-        <Col className="flex-[0.5] lg:mb-0 mb-10">
+        <Col className="xl:flex-1 lg:mb-0 mb-10">
           <span className=" flex justify-center font-bold lg:text-3xl lg:mt-0 text-2xl mt-8">{cryptoDetails.name} Links</span>
           {cryptoDetails.links?.map((link) =>(
             <Row className=" flex justify-between items-center p-5 border-b border-[#d9d9d9] hover:bg-[#F9F9F9]" key={link.name}>

@@ -25,7 +25,7 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    if (screenSize <= 800) {
+    if (screenSize <= 1024) {
       setActiveMenu(false);
     } else {
       setActiveMenu(true);
@@ -34,10 +34,10 @@ const NavBar = () => {
 
   return (
     <div className="lg:h-screen lg:m-4 ">
-      <div className=" lg:flex  items-center gap-5 md:flex md:flex-col flex p-5 w-full">
-        <Avatar src={icon} size={64}  />
-        <Typography.Title level={2} className="logo">
-          <Link to="/">Cryptoverse</Link>
+      <div className=" md:flex lg:justify-start items-center gap-5 flex justify-around p-5 w-full">
+        <Avatar src={icon} size={{ xs: 40, sm: 32, md: 56, lg: 30, xl: 60, xxl: 64 }}  />
+        <Typography.Title >
+          <Link to="/" className="lg:text-2xl md:text-3xl text-xl">Cryptoverse</Link>
         </Typography.Title>
         <Button className=" lg:hidden flex items-center ml-10 bg-[#F9F9F9] " onClick={() => setActiveMenu(!activeMenu)}>
           <MenuOutlined className="text-black border-none" />

@@ -22,7 +22,7 @@ const CryptocurrenciesPage = ({ simplified }) => {
   }, [cryptosList, SearchTerm]);
 
   if (IsFetching) return "Loading...";
-  console.log(cryptos);
+  // console.log(cryptos);
   return (
     <>
       {!simplified && (
@@ -43,7 +43,7 @@ const CryptocurrenciesPage = ({ simplified }) => {
             sm={12}
             lg={6}
             className="crypto-card min-w-[250px] w-9"
-            key={currency.id}
+            key={currency.uuid}
           >
             <Link to={`/crypto/${currency.uuid}`}>
               <Card

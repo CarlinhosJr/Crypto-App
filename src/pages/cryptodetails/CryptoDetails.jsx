@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import millify from "millify";
 import { Col, Row, Select } from "antd";
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../../redux/CryptoApi";
-import HtmlParser from "react-html-parser";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -171,7 +170,7 @@ const CryptoDetails = () => {
         <Row className="xl:w-[600px] lg:w-[400px]">
           <h3 className="coin-details-heading font-bold xl:text-xl lg:text-lg">
             <span>What is {cryptoDetails.name}?</span> 
-            {HtmlParser(cryptoDetails.description)}
+            <p>MAINTENANCE...</p>
           </h3>
         </Row>
 

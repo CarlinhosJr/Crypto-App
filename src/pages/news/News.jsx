@@ -3,12 +3,13 @@ import { Select, Row, Col, Avatar, Card } from "antd";
 import { useGetCryptoNewsQuery } from "../../redux/CryptoNewsApi";
 import moment from "moment/moment";
 import { useGetCryptosQuery } from "../../redux/CryptoApi";
+import Loader from "../../components/Loader";
 
 const { Option } = Select;
 const demoImage =
   "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
-const NewsPage = ({ simplified }) => {
+const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const { data } = useGetCryptosQuery(100);
   const { data: cryptoNews } = useGetCryptoNewsQuery({
@@ -18,7 +19,7 @@ const NewsPage = ({ simplified }) => {
 
   console.log(cryptoNews);
 
-  if (!cryptoNews?.value) return "Loading..."
+  if (!cryptoNews?.value) return <Loader/>
  
   return (
     <Row gutter={[24, 24]} className="mt-6">
@@ -73,4 +74,4 @@ const NewsPage = ({ simplified }) => {
   );
 };
 
-export default NewsPage;
+export default News;

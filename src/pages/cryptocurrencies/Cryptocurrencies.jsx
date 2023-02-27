@@ -5,8 +5,9 @@ import { Card, Row, Col, Input } from "antd";
 
 import { useGetCryptosQuery } from "../../redux/CryptoApi";
 import { SearchOutlined } from "@ant-design/icons";
+import Loader from "../../components/Loader";
 
-const CryptocurrenciesPage = ({ simplified }) => {
+const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, IsFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
@@ -21,7 +22,7 @@ const CryptocurrenciesPage = ({ simplified }) => {
     setCryptos(filterdData);
   }, [cryptosList, SearchTerm]);
 
-  if (IsFetching) return "Loading...";
+  if (IsFetching) return <Loader/>;
   // console.log(cryptos);
   return (
     <>
@@ -65,4 +66,4 @@ const CryptocurrenciesPage = ({ simplified }) => {
   );
 };
 
-export default CryptocurrenciesPage;
+export default Cryptocurrencies;

@@ -11,7 +11,7 @@ axios - (solicitações de api) INSTALED
 
 chart.js (construir os gráficos) INSTALED 
 
-html-react-parser
+html-react-parser -cheerio
 
 millify (transforma numeros grandes em strings legíveis ) INSTALED 
 

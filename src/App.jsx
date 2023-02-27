@@ -5,9 +5,9 @@ import { Layout, Space } from "antd";
 import NavBar from "./components/NavBar";
 import Home from "./pages/home/HomePage";
 import Exchanges from "./pages/exchanges/ExchangesPage";
-import Cryptocurrencies from "./pages/cryptocurrencies/CryptocurrenciesPage";
+import Cryptocurrencies from "./pages/cryptocurrencies/Cryptocurrencies";
 import CryptoDetails from "./pages/cryptodetails/CryptoDetails";
-import News from "./pages/news/NewsPage";
+import News from "./pages/news/News";
 
 function App() {
   return (

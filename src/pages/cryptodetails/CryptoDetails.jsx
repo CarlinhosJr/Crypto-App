@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import millify from "millify";
+import * as cheerio from 'cheerio'
 import { Col, Row, Select } from "antd";
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../../redux/CryptoApi";
 import {
@@ -15,8 +16,10 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 import LineChart from "../../components/LineChart";
+import Loader from "../../components/Loader";
 
 const CryptoDetails = () => {
+  
   const { coinId } = useParams();
   const [timeperiod, setTimePeriod] = useState('7d');
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
@@ -25,7 +28,7 @@ const CryptoDetails = () => {
   console.log(data);
   console.log(coinHistory);
   
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader/>;
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -170,7 +173,7 @@ const CryptoDetails = () => {
         <Row className="xl:w-[600px] lg:w-[400px]">
           <h3 className="coin-details-heading font-bold xl:text-xl lg:text-lg">
             <span>What is {cryptoDetails.name}?</span> 
-            <p>MAINTENANCE...</p>
+            <span></span>
           </h3>
         </Row>
 

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Layout, Space } from "antd";
 import NavBar from "./components/NavBar";
 import Home from "./pages/home/HomePage";
-import Exchanges from "./pages/exchanges/ExchangesPage";
+import Exchanges from "./pages/exchanges/Exchanges";
 import Cryptocurrencies from "./pages/cryptocurrencies/Cryptocurrencies";
 import CryptoDetails from "./pages/cryptodetails/CryptoDetails";
 import News from "./pages/news/News";
